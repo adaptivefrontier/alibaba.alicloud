@@ -970,7 +970,7 @@ def main():
                     if modify_instance(module, inst):
                         changed = True
                         targets.append(inst.id)
-                if ecs.reboot_instances(instance_ids=targets, force_stop=module.params['force']):
+                if ecs.reboot_instances(instance_ids=targets, force_stop=module.params['force'], stopped_mode=module.params['stopped_mode']):
                     changed = True
                     ids.extend(targets)
             except Exception as e:
