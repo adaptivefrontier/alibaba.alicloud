@@ -856,6 +856,10 @@ def main():
             period_unit=dict(type="str", default="Month", choices=["Month", "Week"]),
             dry_run=dict(type="bool", default=False),
             include_data_disks=dict(type="bool", default=True),
+            stopped_mode=dict(
+                type="str",
+                choices=["KeepCharging", "StopCharging"],
+            ),
         )
     )
     module = AnsibleModule(argument_spec=argument_spec)
