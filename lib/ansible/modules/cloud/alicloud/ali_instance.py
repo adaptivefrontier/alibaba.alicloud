@@ -801,7 +801,7 @@ def main():
         instance_ids=dict(type='list', elements='str'),
         auto_renew_period=dict(type='int', choices=[1, 2, 3, 6, 12]),
         key_name=dict(type='str', aliases=['keypair']),
-        user_data=dict(type='str'),
+        user_data=dict(type='str', default=''),
         ram_role_name=dict(type='str'),
         spot_price_limit=dict(type='float'),
         spot_strategy=dict(type='str', default='NoSpot', choices=['NoSpot', 'SpotWithPriceLimit', 'SpotAsPriceGo']),
