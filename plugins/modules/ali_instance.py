@@ -1064,7 +1064,9 @@ def main():
                     if inst.status != "stopped":
                         targets.append(inst.id)
                 if targets and ecs.stop_instances(
-                    instance_ids=targets, force_stop=force
+                    instance_ids=targets,
+                    force_stop=force,
+                    stopped_mode=module.params["stopped_mode"],
                 ):
                     changed = True
                     ids.extend(targets)
@@ -1083,7 +1085,6 @@ def main():
                 if ecs.reboot_instances(
                     instance_ids=targets,
                     force_stop=module.params["force"],
-                    stopped_mode=module.params["stopped_mode"],
                 ):
                     changed = True
                     ids.extend(targets)
